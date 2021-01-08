@@ -1,7 +1,7 @@
 const {currency} = require('../config/coins');
 const {values} = require('./objects');
 
-function coinsData(response) {
+function data(response) {
     return values(response.data.data);
 }
 
@@ -27,7 +27,7 @@ function price(coin) {
 }
 
 module.exports = {
-    coinsData,
+    data,
     priceMap,
     price, 
     infoMap

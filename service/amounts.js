@@ -5,8 +5,7 @@ const {getFullInfos} = require('./http/quotes');
 
 async function fullAmount() {
     const response = await getFullInfos();
-
-    const mapped_prices = dataUtil.priceMap(dataUtil.coinsData(response));
+    const mapped_prices = dataUtil.priceMap(dataUtil.data(response));
     const totals = keys(mapped_prices).map(coin_name => mapped_prices[coin_name] * coins[coin_name]);
     const total_value = totals.reduce((total, current) => total + current).toFixed(2);
     
@@ -16,7 +15,7 @@ async function fullAmount() {
 async function priceAndPercentage() {
     const response = await getFullInfos();
 
-    const mapped_informations = dataUtil.infoMap(dataUtil.coinsData(response));
+    const mapped_informations = dataUtil.infoMap(dataUtil.data(response));
     keys(mapped_informations).forEach(coin_name => mapped_informations[coin_name].user_total = Number((mapped_informations[coin_name].price * coins[coin_name]).toFixed(2)));    
     const total_value = values(mapped_informations).reduce((total, {user_total}) => total + user_total, 0);
     keys(mapped_informations).forEach(coin_name => mapped_informations[coin_name].percentage = Number(((mapped_informations[coin_name].user_total/total_value)*100).toFixed(2)));

@@ -1,9 +1,9 @@
 const currency = 'BRL';
 const coins = {
-    bitcoin: 0.4413, 
-    ethereum: 1.096,
-    nano: 298.691678, 
-    cardano: 0
+    bitcoin: 3, 
+    ethereum: 2,
+    nano: 400, 
+    cardano: 1
 };
 module.exports = {
     currency, 
