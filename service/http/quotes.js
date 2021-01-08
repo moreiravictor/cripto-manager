@@ -5,9 +5,9 @@ const urlBuilder = require('../url/currencyURLbuilder');
 
 const URL = `${base_url}/quotes/latest`;
 
-async function getFullAmount() {
+async function getFullInfos() {
     const complete_url = urlBuilder.buildURL(URL, currency, coins);
     return await axios.get(complete_url, headers);
 }
 
-module.exports = {getFullAmount};
+module.exports = {getFullInfos};

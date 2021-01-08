@@ -5,11 +5,30 @@ function coinsData(response) {
     return values(response.data.data);
 }
 
+function priceMap(coins) {
+    const price_map = {};
+    coins.forEach(coin => price_map[coin.slug] = coin.quote[currency].price);
+    return price_map;
+}
+
+function infoMap(coins) {
+    const map = {};
+    coins.forEach(coin => {
+        map[coin.slug] = {
+                symbol:  coin.symbol,    
+                price: Number(coin.quote[currency].price.toFixed(2)),
+            }
+    });
+    return map;
+}
+
 function price(coin) {
-    return {[coin.slug]: coin.quote[currency].price};
+    return coin.quote[currency].price;
 }
 
 module.exports = {
     coinsData,
-    price
+    priceMap,
+    price, 
+    infoMap
 }
