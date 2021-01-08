@@ -1,0 +1,24 @@
+{
+  "name": "cripto-manager",
+  "version": "1.0.0",
+  "main": "amount.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "node": "^15.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moreiravictor/cripto-manager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moreiravictor/cripto-manager/issues"
+  },
+  "homepage": "https://github.com/moreiravictor/cripto-manager#readme",
+  "description": ""
+}
