@@ -1,5 +1,5 @@
 const axios = require('axios');
-const {currency, coins} = require('../../../core/config/coins');
+const {currency, coins} = require('../../config/coins');
 const currencyHttpBuilder = require('../paramater-builer/currencyHttpBuilder');
 
 async function getFullInfos() {

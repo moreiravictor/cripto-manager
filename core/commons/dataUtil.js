@@ -9,7 +9,12 @@ function price(coin) {
     return coin.quote[currency].price;
 }
 
+function round(num) {
+    return num.toFixed(2);
+}
+
 module.exports = {
     data,
-    price
+    price,
+    round
 }

@@ -1,5 +1,5 @@
-const {base_url, api_key} = require('../../../core/config/general');
-const {keys} = require('../../../core/commons/objects');
+const {base_url, api_key} = require('../../config/general');
+const {keys} = require('../../commons/objects');
 
 const URL = `${base_url}/quotes/latest`;
 

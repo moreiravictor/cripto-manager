@@ -1,13 +1,13 @@
 const dataUtil = require('../commons/dataUtil');
 const {coins} = require('../config/coins');
-const quotes = require('../../adapter/http/service/quotes');
+const quotesClient = require('../http/client/quotesClient');
 
 function userTotal(coin) {
     return coins[coin.slug] * dataUtil.price(coin);
 }
 
 async function fullAmount() {
-    const response = await quotes.getFullInfos();
+    const response = await quotesClient.getFullInfos();
     const coins_data = dataUtil.data(response);
 
     coins_data.map(coin => coin.user_total = userTotal(coin));
@@ -17,7 +17,7 @@ async function fullAmount() {
 }
 
 async function priceAndPercentage() {
-    const response = await quotes.getFullInfos();
+    const response = await quotesClient.getFullInfos();
     const coins_data = dataUtil.data(response);
     
     coins_data.map(coin => coin.user_total = userTotal(coin));
@@ -26,7 +26,6 @@ async function priceAndPercentage() {
     
     return coins_data;
 }
-
 module.exports = {
     fullAmount,
     priceAndPercentage
