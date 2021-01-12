@@ -2,7 +2,11 @@ const amounts = require("../../../core/service/amounts")
 
 module.exports = {
     async getUserFullAmount(req, res) {
-        const amount = await amounts.fullAmount();
+        const {currency} = req.query;
+        const coins_amount = req.query;
+        delete coins_amount.currency;
+
+        const amount = await amounts.fullAmount(currency, coins_amount);
         return res.json(amount);
     },
     async getUserCoinsInfo(req, res) {
